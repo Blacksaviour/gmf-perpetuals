@@ -27,8 +27,9 @@ contract GLPToken is ERC20, Ownable {
      * @param _account The address that will receive the minted tokens.
      * @param _amount The amount of tokens to mint.
      */
-    function mint(address _account, uint256 _amount) external onlyOwner {
-        _mint(_account, _amount);
+    function mint(address _account, uint256 _amount) external onlyOwner { // cant we use a low level call to bypass this only owner can mint 
+        _mint(_account, _amount);// who are we minting to, and who is doing the minting
+        // can this mint function be bypassed , is it stored in the contract storage
     }
 
     /**
@@ -43,3 +44,6 @@ contract GLPToken is ERC20, Ownable {
         _burn(_account, _amount);
     }
 }
+//when this token were created they were stored somewhere, cant we access were they
+// are been stored with the numbers they are stored with
+// is there any way we can immitate the onlyowner. 

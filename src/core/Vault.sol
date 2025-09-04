@@ -68,6 +68,7 @@ contract Vault is ReentrancyGuard, Ownable, IVault {
      * @dev Tracks the total amount of each token held by the vault
      */
     mapping(address => uint256) public tokenBalances;
+    // no mapping of user to token to amount deposited (mismatch)
 
     /**
      * @notice Mapping to check if a token is whitelisted
@@ -206,6 +207,7 @@ contract Vault is ReentrancyGuard, Ownable, IVault {
         // Check if vault has sufficient balance
         if (tokenBalances[_token] < tokenAmount) {
             revert InsufficientBalance(tokenAmount, tokenBalances[_token]);
+            // the line were accounting mismatch can hurt the code.
         }
 
         // Burn GLP tokens from user
