@@ -36,7 +36,7 @@ contract GLPTokenOwnershipTest is Test {
         vm.startPrank(newOwner);
         token.mint(user, 100 ether); // mint 100 tokens to 'user'
         vm.stopPrank();
-        assertEq(token.balanceOf(user), 100 ether, "New owner should be able to mint");
+        assertEq(token.balanceOf(user), 100 ether, "New owner supposed to be able to mint");
 
         // Step 3: Old owner tries to mint and should fail
         vm.startPrank(oldOwner);
